@@ -1,0 +1,13 @@
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+    compile 'org.apache.nifi:nifi-api:0.3.0'
+    compile 'org.apache.nifi:nifi-processor-utils:0.3.0'
+    testCompile 'junit:junit:4.12'
+}
