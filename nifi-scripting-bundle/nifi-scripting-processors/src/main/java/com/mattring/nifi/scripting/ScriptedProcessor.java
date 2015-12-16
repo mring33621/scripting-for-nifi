@@ -44,7 +44,7 @@ import org.apache.nifi.processor.exception.ProcessException;
 import org.apache.nifi.processor.util.StandardValidators;
 
 @Tags({"scripting"})
-@CapabilityDescription("Run a script as a NiFi processor. Currently supports Groovy.")
+@CapabilityDescription("Run a script as a NiFi processor. Currently supports Groovy (.groovy) and JavaScript (.js).")
 @SeeAlso({})
 @ReadsAttributes({
     @ReadsAttribute(attribute = "various", description = "depends on the script")})
@@ -104,25 +104,15 @@ public class ScriptedProcessor extends AbstractProcessor {
     public void run(final ProcessContext context) {
 
         final String scriptUriStr = context.getProperty(SCRIPT_URI).getValue();
-
-        if (scriptUriStr.toLowerCase().endsWith(".groovy")) {
-
-            final int numScriptTriggerables = context.getMaxConcurrentTasks();
-            // NOTE: 
-            // It is possible that the script could change during this loop,
-            // causing inconsistency within the pool. 
-            // Could be detected, using MD5 or other means.
-            for (int i = 0; i < numScriptTriggerables; i++) {
-                ScriptTriggerable st = new GroovyScriptTriggerable();
-                st.init(scriptUriStr);
-                scriptRunnerPool.add(st);
-            }
-
-        } else {
-
-            throw new IllegalArgumentException(
-                    "Only Groovy scripts are currently supported. Tried: "
-                    + scriptUriStr);
+        final int numScriptTriggerables = context.getMaxConcurrentTasks();
+        // NOTE: 
+        // It is possible that the script could change during this loop,
+        // causing inconsistency within the pool. 
+        // Could be detected, using MD5 or other means.
+        for (int i = 0; i < numScriptTriggerables; i++) {
+            ScriptTriggerable st = new JSR223ScriptTriggerable();
+            st.init(scriptUriStr);
+            scriptRunnerPool.add(st);
         }
     }
 

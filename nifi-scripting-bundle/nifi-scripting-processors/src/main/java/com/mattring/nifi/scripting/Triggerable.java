@@ -16,12 +16,17 @@
  */
 package com.mattring.nifi.scripting;
 
+import java.util.Map;
+import org.apache.nifi.flowfile.FlowFile;
+import org.apache.nifi.processor.ProcessContext;
+import org.apache.nifi.processor.ProcessSession;
+
 /**
  *
  * @author Matthew
  */
-public interface ScriptTriggerable extends Triggerable {
-    
-    public void init(String scriptFileUri);
+public interface Triggerable {
+
+    Map<String, FlowFile> onTrigger(final ProcessContext context, final ProcessSession session) throws Exception;
     
 }

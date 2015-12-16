@@ -30,16 +30,11 @@ def onTrigger(final ProcessContext context, final ProcessSession session) throws
     
     FlowFile copy = session.clone(incomingFlowFile);
     copy = session.putAttribute(copy, "script.attrib", "copy");
-    copy = session.append(copy, new OutputStreamCallback() {
-        @Override
-        public void process(OutputStream out) throws IOException {
-            out.write("\nHello!".getBytes());
-        }
-    });
-    session.getProvenanceReporter().modifyContent(copy, "Appended 'Hello!'");
+    callBack = { OutputStream out -> out.write("\nHello, Groovy!".getBytes()) } as OutputStreamCallback;
+    copy = session.append(copy, callBack);
+    session.getProvenanceReporter().modifyContent(copy, "Appended 'Hello, Groovy!'");
     
     incomingFlowFile = session.putAttribute(incomingFlowFile, "script.attrib", "original");
     
     return [A:incomingFlowFile, B:copy];
 }
-this
