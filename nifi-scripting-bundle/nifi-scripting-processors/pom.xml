@@ -22,7 +22,9 @@
         <version>0.6.0</version>
     </parent>
 
+    <groupId>com.mattring</groupId>
     <artifactId>nifi-scripting-processors</artifactId>
+    <version>0.6.0</version>
     <packaging>jar</packaging>
 
     <build>
