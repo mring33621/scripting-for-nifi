@@ -1,11 +1,11 @@
 # scripting-for-nifi
 A scripting processor for Apache [NiFi](http://nifi.apache.org/). Currently supports [Groovy](http://www.groovy-lang.org/) and [JavaScript](http://www.oracle.com/technetwork/articles/java/jf14-nashorn-2126515.html).
 
-Version 0.6.0
+Version 0.6.1
 
 ABOUT:
 * Use arbitrary scripts as NiFi Processors!
-* Tested on NiFi v0.4.0
+* Tested on NiFi v0.4.1
 * Java 8 compatible. Not sure about Java 6 or 7.
 
 USAGE:

@@ -6,17 +6,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
       <group name="Playground">
         <file>file:/C:/Projects/scripting-for-nifi/GroovyScriptExamples/src/main/java/com/mattring/js/tryout/TryoutMain.java</file>
-        <file>file:/C:/Projects/scripting-for-nifi/GroovyScriptExamples/src/main/groovy/Hello.js</file>
         <file>file:/C:/Projects/scripting-for-nifi/GroovyScriptExamples/src/main/groovy/Hello.groovy</file>
+        <file>file:/C:/Projects/scripting-for-nifi/GroovyScriptExamples/src/main/groovy/Hello.js</file>
       </group>
     </open-files>
-    <editor-bookmarks lastBookmarkId="0" xmlns="http://www.netbeans.org/ns/editor-bookmarks/2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-      <group name="Playground">
-        <file>file:/C:/Projects/scripting-for-nifi/GroovyScriptExamples/src/main/java/com/mattring/js/tryout/TryoutMain.java</file>
-        <file>file:/C:/Projects/scripting-for-nifi/GroovyScriptExamples/src/main/groovy/Hello.groovy</file>
-        <file>file:/C:/Projects/scripting-for-nifi/GroovyScriptExamples/src/main/groovy/Hello.js</file>
-      </group>
+      <group name="Nats-Nifi"/>
     </open-files>
   </auxiliary>
 </gradle-project-properties>
